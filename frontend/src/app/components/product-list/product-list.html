@@ -1,0 +1,38 @@
+<div class="container">
+  <div class="header">
+    <h2>Inventario de Productos</h2>
+    <button (click)="logout()">Cerrar sesión</button>
+  </div>
+
+  <p class="error" *ngIf="errorMessage">{{ errorMessage }}</p>
+
+  <button *ngIf="isAdmin" (click)="goToCreate()" class="btn-create">
+    + Nuevo Producto
+  </button>
+
+  <table>
+    <thead>
+      <tr>
+        <th>SKU</th>
+        <th>Nombre</th>
+        <th>Precio</th>
+        <th>Cantidad</th>
+        <th *ngIf="isAdmin">Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let product of products">
+        <td>{{ product.sku }}</td>
+        <td>{{ product.nombre }}</td>
+        <td>{{ product.precio | currency }}</td>
+        <td>{{ product.cantidad }}</td>
+        <td *ngIf="isAdmin">
+          <button (click)="goToEdit(product.id)">Editar</button>
+          <button (click)="deleteProduct(product.id)">Eliminar</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p *ngIf="products.length === 0">No hay productos registrados.</p>
+</div>

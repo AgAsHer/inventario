@@ -125,6 +125,7 @@ public class ProductService {
     // Convierte una Entity Product a su representación DTO
     private ProductDTO convertToDTO(Product product) {
         ProductDTO dto = new ProductDTO();
+        dto.setId(product.getId());
         dto.setSku(product.getSku());
         dto.setNombre(product.getNombre());
         dto.setPrecio(product.getPrecio());

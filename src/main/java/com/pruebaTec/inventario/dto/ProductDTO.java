@@ -13,6 +13,8 @@ import java.math.BigDecimal;
 
 public class ProductDTO {
 
+     private Long id;
+
     @NotBlank(message = "El SKU es obligatorio")
     private String sku;
 

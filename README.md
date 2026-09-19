@@ -170,7 +170,9 @@ Todos los endpoints están bajo el prefijo `/api/v1`.
 
 Las rutas protegidas requieren el header:
 
+```
 Authorization: Bearer <token>
+```
 
 **Request de ejemplo (POST /products):**
 ```json
